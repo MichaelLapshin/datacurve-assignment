@@ -1,4 +1,19 @@
-# Message to the Datacurve
+# About this Repo
+Requirements:
+- React (Vite or Next.js), Typescript, Tailwind CSS
+- Python (FastAPI or Litestar) backend
+
+# Design Overview
+TODO
+
+# Setup
+Run and install the following to obtain the proper dependencies.
+```
+npm install
+npm run
+```
+
+# Message to the Datacurve (June 2, 2024)
 Hello Datacurve,
 
 I was informed on Friday evening that I was selected to do a take-home assignment over the weekend.
@@ -9,7 +24,7 @@ I would gladly complete this take-home assessment at a later date. Could I compl
 
 I would not want to miss the opportunity to interview with you. I am 4th-year Software Engineering student and have gathered great experience in software development. I have also worked at 5 co-ops jobs and on many side-projects. Therefore, I believe that I would be stronge candidate for this role. Please refer to my resume for more details.
 
-Please see my past GitHub projects as reference for Software Development skills. They README also provides descriptions and graphics.
+Please see my past GitHub projects as reference for a demonstration of my software development skills. Their READMEs also provides descriptions and graphics.
 - Project KeepId: https://github.com/MichaelLapshin/KeepId-UserComms
   - Skills: Scala, C++, Kubernetes, Docker, Microservices, Encryption
 - Project UniBar: https://github.com/MichaelLapshin/unibar-back-end
@@ -19,6 +34,3 @@ Please see my past GitHub projects as reference for Software Development skills.
 
 Thank you,
 Michael Lapshin
-
-# datacurve-assignment
-Datacurve's Next Step interview take-home assignment

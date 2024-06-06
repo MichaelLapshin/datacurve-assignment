@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+  db:
+    build:
+      context: ./database
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: datacurve
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    restart: no
+    ports:
+      - 3306:3306
+    
+  backend:
+    image: datacurve-backend:latest
+    build:
+      context: ./backend
+    environment:
+      # Server config
+      SERVER_HOST: 0.0.0.0
+      SERVER_PORT: 5000
+
+      # Sandbox config
+      SANDBOX_TIMEOUT_S: 15
+      SANDBOX_CPU: 1
+      SANDBOX_MEMORY_MB: 500
+
+      # Database config
+      DB_HOST: db
+      DB_NAME: datacurve
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+    restart: no
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+
+  frontend:
+    image: datacurve-frontend:latest
+    build:
+      context: ./frontend
+    environment:
+      BACKEND_URL: http://backend:5000
+    restart: no
+    ports:
+      - 4173:4173
+    depends_on:
+      - backend

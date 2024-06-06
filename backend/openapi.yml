@@ -1,0 +1,51 @@
+openapi: 3.1.0
+
+info:
+  title: Datacurve Assessment by Michael Lapshin
+  description: Data
+  version: 1.0.0
+  contact:
+    name: Michael Lapshin
+    email: mrmichael.lapshin@gmail.com
+
+paths:
+  /test-code:
+    post:
+      summary: Tests the user Python code.
+      description: Runs the user Python code in a sandbox environment in a trusted environment.
+      responses:
+        '200':
+          description: "User code successfully run."
+          contents:
+            applications/json:
+              $ref: '#/components/schemas/ProgramOutput'
+        '400':
+          description: "User code did not run successfully."
+
+  /submit:
+    post:
+      summary: Submit code to the database.
+      description: Runs the code and persists successful code to the database.
+      responses:
+        '200':
+          description: Code successfully run.
+          content:
+            application/json:
+              $ref: '#/components/schemas/ProgramOutput'
+        '400':
+          description: Code did not run successfully. Did not submit to the database.
+          content:
+            applications/json:
+              $ref: '#/components/schemas/ProgramOutput'
+
+components:
+  schemas:
+    ProgramOutput:
+      type: object
+      properties:
+        code:
+          type: string
+        output:
+          type: string
+        error:
+          type: string
